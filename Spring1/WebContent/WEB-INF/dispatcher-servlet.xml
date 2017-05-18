@@ -66,4 +66,36 @@
 	
 	
 	<bean id="characterInfoController" class="controller.CharacterInfoController"/>
+	
+	
+	<bean id="authenticator" class="service.MockAuthenticator"
+		p:commonLogger-ref="commonLogger"/>
+	
+	<bean class="controller.LoginController">
+		<property name="authenticator" ref="authenticator"/>
+	</bean>
+	
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	<bean class="controller.ReportSubmissionController"/>
+	
+	
+	<bean class="controller.QueryLogController"/>
+	
+	
+	<bean class="controller.EventController"/>
+	
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="interceptors">
+			<list>
+				<ref bean="eventExpirationCheckInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="eventExpirationCheckInterceptor" class="interceptor.EventExpirationCheckInterceptor" />
+	
 </beans>	
