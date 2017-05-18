@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/beans/context
+							http://www.springframework.org/schema/beans/context/spring-context-3.0.xsd">
+							
+
+	
+	<bean id="helloController" class="controller.HelloController"/>
+
+	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	
+	<bean id="newArticleController" class="controller.NewArticleController"
+		p:articleService-ref="articleService"/>
+	
+	<bean id="articleService" class="service.ArticleService"/>
+
+
+	<bean id="orderController" class="controller.OrderController"/>
+	
+	
+	<bean id="searchController" class="controller.SearchController"/>
+	
+	
+	<bean id="cookieController" class="controller.CookieController"/>
+	
+	<bean id="headerController" class="controller.HeaderController"/>
+	
+	
+	
+	<bean id="gameSearchController" class="controller.GameSearchController"
+		p:searchService-ref="searchService"/>
+	
+	<bean id="searchService" class="service.SearchService"/>
+	
+	
+	<bean id="createAccountController" class="controller.CreateAccountController"/>
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="gameInfoController" class="controller.GameInfoController"/>
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true" />		
+	</bean>
+	
+	
+	<bean id="characterInfoController" class="controller.CharacterInfoController"/>
+</beans>	
