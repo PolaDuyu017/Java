@@ -14,7 +14,6 @@ public class EventExpirationCheckInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		
 		if(checkEvent(request) && checkEventExpiration()){
 			displayEventExpirationPage(request, response);
 			return false;
@@ -29,7 +28,7 @@ public class EventExpirationCheckInterceptor extends HandlerInterceptorAdapter{
 	
 	private boolean checkEventExpiration(){
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(2025, 3, 15);
+		calendar.set(2015, 3, 15);
 		Date now = new Date();
 		return now.after(calendar.getTime());
 	}

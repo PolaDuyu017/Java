@@ -8,8 +8,22 @@
 							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 							http://www.springframework.org/schema/beans/context
 							http://www.springframework.org/schema/beans/context/spring-context-3.0.xsd">
+	
+	<bean class="controller.EventController"/>
 							
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="interceptors">
+			<list>
+				<ref bean="eventExpirationCheckInterceptor" />
+			</list>
+		</property>
+	</bean>
 
+	<bean id="eventExpirationCheckInterceptor" class="interceptor.EventExpirationCheckInterceptor" />
+	
+	
 	
 	<bean id="helloController" class="controller.HelloController"/>
 
@@ -82,20 +96,5 @@
 	
 	
 	<bean class="controller.QueryLogController"/>
-	
-	
-	<bean class="controller.EventController"/>
-	
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-		<property name="alwaysUseFullPath" value="true" />
-		<property name="interceptors">
-			<list>
-				<ref bean="eventExpirationCheckInterceptor" />
-			</list>
-		</property>
-	</bean>
-
-	<bean id="eventExpirationCheckInterceptor" class="interceptor.EventExpirationCheckInterceptor" />
 	
 </beans>	
