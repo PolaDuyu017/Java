@@ -27,7 +27,7 @@
 		</tr>
 		<tr height="40px">
 			<td>패스워드</td>
-			<td><form:input path="password" cssClass="password"/>
+			<td><form:password path="password" cssClass="password"/>
 				<font color="red">
 					<form:errors path="password"/>
 				</font>
