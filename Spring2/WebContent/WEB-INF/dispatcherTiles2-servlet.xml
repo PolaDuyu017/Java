@@ -37,6 +37,8 @@
 				<value>/WEB-INF/tiles2/tilesdef.xml</value>
 			</list>
 		</property>
+		<property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory" />
 	</bean>
 	
   	<bean
@@ -49,4 +51,8 @@
 		<property name="alwaysUseFullPath" value="false" />
 		<property name="cacheSeconds" value="0" />
 	</bean>
+	
+	<bean class="controller.RegistMemberController" />
+
+	<bean id="menuPreparer" class="tiles2.MenuPreparer" />
 </beans>	

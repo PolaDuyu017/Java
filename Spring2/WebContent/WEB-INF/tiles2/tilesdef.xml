@@ -26,4 +26,16 @@
 			value="/viewtiles2/loginSuccess.jsp"/>
 	</definition>
 	
+	<definition name="registMemberForm" extends="base_layout">
+		<put-attribute name="title" value="회원 가입" />
+		<put-attribute name="body"
+			value="/viewtiles2/registMemberForm.jsp" />
+	</definition>
+
+	<definition name="registMember" extends="base_layout">
+		<put-attribute name="title" value="회원 가입 완료" />
+		<put-attribute name="body"
+			value="/viewtiles2/registMember.jsp" />
+	</definition>
+	
 </tiles-definitions>
