@@ -21,7 +21,7 @@
 		<value>jdbc:oracle:thin:@istudy.iptime.org:7000:ORCL</value>
 	</property>
 	<property name="username">
-		<value>KH21</value>
+		<value>KH06</value>
 	</property>
 	<property name="password">
 		<value>oracle</value>

@@ -19,7 +19,7 @@ public class ItemDaoImpl implements ItemDao{
 	}
 	
 	private static final String SELECT_ALL = 
-			"SELECT item_id, item_name, price, description, picture_url FROM item order by item_id";
+			"SELECT item_id, item_name, price, description, picture_url FROM sin_item order by item_id";
 
 	@Override
 	public List<Item> findAll() {

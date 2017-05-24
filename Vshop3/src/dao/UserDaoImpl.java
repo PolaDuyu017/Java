@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao{
 	
 	private static final String SELECT_BY_USERID_PASSWORD = 
 			"SELECT user_id, password, user_name, postcode, address,"
-			+ " email, job, birthday FROM user_account WHERE user_id = ? AND password = ?";
+			+ " email, job, birthday FROM sin_user_account WHERE user_id = ? AND password = ?";
 
 	@Override
 	public User findByUserIdAndPassword(String userId, String password) {

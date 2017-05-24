@@ -17,7 +17,7 @@
 		</property>
 		<!-- MySQL 유저ID 설정 -->
 		<property name="username">
-			<value>KH21</value>
+			<value>KH06</value>
 		</property>
 		<!-- MySQL 패스워드 설정  -->
 		<property name="password">
