@@ -51,7 +51,9 @@ public class LoginFormController{
 		try{
 			User loginUser = this.shopService.getUserByUserIdAndPassword(user.getUserId(), user.getPassword());
 			session.setAttribute(WebConstants.USER_KEY, loginUser);
-			/*if(session.getAttribute(WebConstants.USER_KEY)==null){}*/
+			if(session.getAttribute(WebConstants.USER_KEY)==null){
+				session.setAttribute(WebConstants.CART_KEY, this.shopService.getCart());
+			}
 			
 			modelAndView.setViewName("loginform/loginSuccess");
 			modelAndView.addObject("loginUser", loginUser);
@@ -63,5 +65,4 @@ public class LoginFormController{
 			return modelAndView;
 		}
 	}
-	
 }

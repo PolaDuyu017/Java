@@ -74,6 +74,9 @@ public class UserEntryFormController{
 		try{
 			this.shopService.entryUser(user);
 			session.setAttribute(WebConstants.USER_KEY, user);
+			if (this.shopService.getCart() == null) {
+				session.setAttribute(WebConstants.CART_KEY, this.shopService.getCart());
+			}
 			modelAndView.setViewName("userentryform/userEntrySuccess");
 			modelAndView.addObject("user", user);
 			return modelAndView;

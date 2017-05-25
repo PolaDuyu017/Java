@@ -4,11 +4,17 @@ import java.util.List;
 
 public interface Shop {
 	
-	void entryUser(User user);
-	
-	User getUserByUserIdAndPassword(String userId, String password);
-	
+	Cart getCart();
+
+	Integer calculateTotalAmount(List<ItemSet> itemList);
+
+	void checkout(User user, Cart cart);
+
 	List<Item> getItemList();
-	
+
 	Item getItemByItemId(Integer itemId);
+
+	User getUserByUserIdAndPassword(String userId, String password);
+
+	void entryUser(User user);
 }
