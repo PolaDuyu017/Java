@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SaleLineDaoImpl implements SaleLineDao {
 
-	private static final String INSERT = "INSERT INTO sale_line(sale_id, sale_line_id, item_id, quantity, update_time)"
+	private static final String INSERT = "INSERT INTO sin_sale_line(sale_id, sale_line_id, item_id, quantity, update_time)"
 			+ " VALUES(?, ?, ?, ?, ?)";
 
 	private SimpleJdbcTemplate template;

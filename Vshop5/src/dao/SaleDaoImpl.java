@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SaleDaoImpl implements SaleDao {
 
-	private static final String SELECT_MAX_SALEID = "SELECT MAX(sale_id) AS sale_id FROM sale";
+	private static final String SELECT_MAX_SALEID = "SELECT MAX(sale_id) AS sale_id FROM sin_sale";
 
-	private static final String INSERT = "INSERT INTO sale(sale_id, user_id, update_time) VALUES(?, ?, ?)";
+	private static final String INSERT = "INSERT INTO sin_sale(sale_id, user_id, update_time) VALUES(?, ?, ?)";
 
 	private SimpleJdbcTemplate template;
 
