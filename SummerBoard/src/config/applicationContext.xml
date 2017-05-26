@@ -33,11 +33,11 @@
 	<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
 </bean>
 
-<!-- <bean id="memberService" class="member.service.MemberService">
+<bean id="memberService" class="member.service.MemberService">
 	<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
-</bean> -->
+</bean>
 
-<!-- <bean id="boardService" class="board.service.BoardService">
+<bean id="boardService" class="board.service.BoardService">
 	<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
-</bean> -->
+</bean>
 </beans>

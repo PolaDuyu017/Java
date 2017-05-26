@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link href="<%= request.getContextPath() %>/css/main.css" rel="stlyesheet" type="text/css">
+<link href="<%= request.getContextPath() %>/css/main.css" rel="stylesheet" type="text/css">
 <c:if test="${errCode==null}">
 	<c:set var="errCode" value="\"\""></c:set>
 </c:if>

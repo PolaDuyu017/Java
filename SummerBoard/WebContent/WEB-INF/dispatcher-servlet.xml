@@ -9,9 +9,9 @@
 
 	<bean id="loginController" class="login.controller.LoginController"/>
 	
-	<!-- <bean id="memberController" class="member.controller.MemberController"/> -->
+	<bean id="memberController" class="member.controller.MemberController"/>
 	
-	<!-- <bean id="boardController" class="board.controller.BoardController"/> -->
+	<bean id="boardController" class="board.controller.BoardController"/>
 	
     <bean id="vewResolver"
     	class="org.springframework.web.servlet.view.InternalResourceViewResolver">

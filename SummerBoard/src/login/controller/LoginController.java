@@ -27,7 +27,7 @@ public class LoginController {
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session){
 		session.invalidate();
-		return "rediract:login.do";
+		return "redirect:login.do";
 	}
 	
 	@RequestMapping(value="login.do", method = RequestMethod.POST)
@@ -57,7 +57,7 @@ public class LoginController {
 		if(loginCheckResult.getUserPw().equals(userPw)){
 			session.setAttribute("userId", userId);
 			session.setAttribute("userName", loginCheckResult.getUserName());
-			mav.setViewName("rediract:/board/list.do");
+			mav.setViewName("redirect:/board/list.do");
 			return mav;
 		}else{	
 			mav.addObject("userId", userId);

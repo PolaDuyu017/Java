@@ -16,13 +16,13 @@
 		from sin_jmboard_member 
 	</select>
 	
-	<select id="findByuserId" parameterClass="String" resultClass="MemberModel">
+	<select id="findByUserId" parameterClass="String" resultClass="MemberModel">
 		select idx, userId, userPw, userName, JoinDate
 		from sin_jmboard_member where userId = #userId# 
 	</select>
 	
 	<insert id="addMember" parameterClass="MemberModel">
 		insert into sin_jmboard_member (idx, userId, userPw, userName, JoinDate)
-		value (sin_memberseq.nextVal, #userId#, #userPw#, #userName#, sysdate)
+		values (sin_memberseq.nextVal, #userId#, #userPw#, #userName#, sysdate)
 	</insert>
 </sqlMap>
