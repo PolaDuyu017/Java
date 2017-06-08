@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.DH.spring4.MemberMapper">
+	
+	<resultMap type="Member" id="MemberResultMap">
+		<result property="_name" column="NAME"/>
+		<result property="_email" column="EMAIL"/>
+		<result property="_phone" column="PHONE"/>
+	</resultMap>
+	
+	<select id="getMembers" resultMap="MemberResultMap">
+		SELECT * FROM gun_tab_mybatis
+	</select>
+	
+	<insert id="insertMember" parameterType="com.DH.spring4.Member">
+		INSERT INTO gun_tab_mybatis values(#{_name}, #{_email}, #{_phone})
+	</insert>
+	
+	<update id=""></update>
+	
+	<delete id="deleteMember" parameterType="com.DH.spring4.Member">
+		DELETE gun_tab_mybatis WHERE (name=#{_name})
+	</delete>
+</mapper>	
