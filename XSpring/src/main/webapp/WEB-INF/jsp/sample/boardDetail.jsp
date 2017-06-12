@@ -36,6 +36,16 @@
 			<tr>
 				<td colspan="4">${map.CONTENTS }</td>
 			</tr>
+			<tr>
+                <th scope="row">첨부파일</th>
+                <td colspan="3">
+                    <c:forEach var="row" items="${list }">
+                        <input type="hidden" id="IDX" value="${row.IDX }">
+                        <a href="#this" name="file">${row.ORIGINAL_FILE_NAME }</a>
+                        (${row.FILE_SIZE }kb)
+                    </c:forEach>
+                </td>
+            </tr>
 		</tbody>
 	</table>
 	
@@ -54,6 +64,11 @@
 				e.preventDefault();
 				fn_openBoardUpdate();
 			});
+			
+			$("a[name='file']").on("click", function(e){ //파일 이름
+                e.preventDefault();
+                fn_downloadFile($(this));
+            });
 		});
 		
 		function fn_openBoardList(){
@@ -69,6 +84,14 @@
 			comSubmit.addParam("IDX", idx);
 			comSubmit.submit();
 		}
+		
+		function fn_downloadFile(obj){
+	        var idx = obj.parent().find("#IDX").val();
+	        var comSubmit = new ComSubmit();
+	        comSubmit.setUrl("<c:url value='/common/downloadFile.do' />");
+	        comSubmit.addParam("IDX", idx);
+	        comSubmit.submit();
+	    }
 	</script>
 </body>
 </html>

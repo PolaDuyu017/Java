@@ -46,6 +46,8 @@
 				</tr>
 			</tbody>
 		</table>
+		<input type="file" name="file">
+        <br/><br/>
 	</form>
 	
 	<a href="#this" class="btn" id="list">목록으로</a>

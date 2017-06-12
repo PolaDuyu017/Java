@@ -10,13 +10,41 @@
 		]]>
 	</select>
 	
-	<insert id="insertBoard" parameterType="hashmap">
+	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
+	    <![CDATA[
+	        SELECT
+	            IDX,
+	            ORIGINAL_FILE_NAME,
+	            ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
+	        FROM
+	            GUN_TB_FILE
+	        WHERE
+	            BOARD_IDX = #{IDX}
+	            AND DEL_GB = 'N'
+	    ]]>
+	</select>
+	
+	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+	    <selectKey keyProperty="IDX" resultType="string" order="BEFORE">
+	        SELECT SEQ_TB_BOARD_IDX.NEXTVAL FROM DUAL
+	    </selectKey>
 		<![CDATA[
 			INSERT INTO GUN_TB_BOARD
 			(IDX, TITLE, CONTENTS, HIT_CNT, DEL_GB, CREA_DTM, CREA_ID)
 			VALUES
-			(GUN_SEQ_TB_BOARD_IDX.NEXTVAL, #{TITLE}, #{CONTENTS}, 
+			(#{IDX}, #{TITLE}, #{CONTENTS}, 
 			 0, 'N', SYSDATE, 'Admin')
+		]]>
+	</insert>
+	
+	<insert id="insertFile" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO GUN_TB_FILE
+			(IDX, BOARD_IDX, ORIGINAL_FILE_NAME, STORED_FILE_NAME,
+			FILE_SIZE, CREA_ID)
+			VALUES
+			(GUN_SEQ_TB_FILE_IDX.NEXTVAL, #{BOARD_IDX}, #{ORIGINAL_FILE_NAME},
+			#{STORED_FILE_NAME}, #{FILE_SIZE}, 'Admin')
 		]]>
 	</insert>
 	
